@@ -1,6 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:portfolio/responsive.dart';
 
 import '../../../utils/color_theme.dart';
 
@@ -31,12 +33,17 @@ class HomeBanner extends StatelessWidget {
               children: [
                 Text(
                   'Discover My Amazing \nArt Space!',
-                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                  style:Responsive.isDesktop(context) ? Theme.of(context).textTheme.headline3!.copyWith(
+                      fontWeight: FontWeight.bold, color: Colors.white):Theme.of(context).textTheme.headline5!.copyWith(
                       fontWeight: FontWeight.bold, color: Colors.white),
                 ),
+                if(!Responsive.isMobileLarge(context))
+                  const SizedBox(height: defaultPadding/2,),
                 const MyBuildAnimatedText(),
-                const SizedBox(height: defaultPadding,),
-                CupertinoButton(
+                if(!Responsive.isMobileLarge(context))
+                    SizedBox(height: defaultPadding,),
+                if(!Responsive.isMobileLarge(context))
+                  CupertinoButton(
                     padding: const EdgeInsets.symmetric(
                         horizontal: defaultPadding*2,
                         vertical: defaultPadding/2
@@ -65,36 +72,52 @@ class MyBuildAnimatedText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle(
+      maxLines: 1,
       style: Theme.of(context).textTheme.subtitle1!,
       child: Row(
         children: [
-          const FlutterCodedText(),
-          const SizedBox(
-            width: defaultPadding / 2,
-          ),
+          if(!Responsive.isMobileLarge(context))
+            const FlutterCodedText(),
+          if(!Responsive.isMobileLarge(context))
+            const SizedBox(
+              width: defaultPadding / 2,
+            ),
           const Text('I build '),
-          AnimatedTextKit(
-            animatedTexts: [
-              TyperAnimatedText(
-                'responsive web and mobile app.',
-                speed: const Duration(milliseconds: 60),
-              ),
-              TyperAnimatedText(
-                'complete e-Commerce app UI.',
-                speed: const Duration(milliseconds: 60),
-              ),
-              TyperAnimatedText(
-                'chat app with dark and light thme.',
-                speed: const Duration(milliseconds: 60),
-              ),
-            ],
-          ),
-          const SizedBox(
-            width: defaultPadding / 2,
-          ),
-          const FlutterCodedText(),
+          (Responsive.isMobileLarge(context))?Expanded(child: AnimetedTexts()):AnimetedTexts(),
+          if(!Responsive.isMobileLarge(context))
+            const SizedBox(
+              width: defaultPadding / 2,
+            ),
+          if(!Responsive.isMobileLarge(context))
+            const FlutterCodedText(),
         ],
       ),
+    );
+  }
+}
+
+class AnimetedTexts extends StatelessWidget {
+  const AnimetedTexts({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedTextKit(
+      animatedTexts: [
+        TyperAnimatedText(
+          'responsive web and mobile app.',
+          speed: const Duration(milliseconds: 60),
+        ),
+        TyperAnimatedText(
+          'complete e-Commerce app UI.',
+          speed: const Duration(milliseconds: 60),
+        ),
+        TyperAnimatedText(
+          'chat app with dark and light thme.',
+          speed: const Duration(milliseconds: 60),
+        ),
+      ],
     );
   }
 }

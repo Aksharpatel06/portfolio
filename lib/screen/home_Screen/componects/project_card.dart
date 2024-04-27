@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/responsive.dart';
 
 import '../../../model/Project.dart';
 import '../../../utils/color_theme.dart';
@@ -21,10 +22,9 @@ class ProjectCard extends StatelessWidget {
         children: [
           Text(project.title!,maxLines: 2,overflow: TextOverflow.ellipsis,style: Theme.of(context).textTheme.subtitle2,),
           Spacer(),
-          Text(project.description!,maxLines: 4,overflow: TextOverflow.ellipsis,style: TextStyle(height: 1.5),),
+          Text(project.description!,maxLines:Responsive.isMobileLarge(context)?3: 4,overflow: TextOverflow.ellipsis,style: TextStyle(height: 1.5),),
           Spacer(),
           TextButton(onPressed: () {
-
           },child: Text("Read More >> ",style: TextStyle(color: primaryColor),))
         ],
       ),

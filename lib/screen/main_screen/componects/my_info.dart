@@ -10,18 +10,18 @@ class MyInfo extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1.23,
       child: Container(
-        color: Color(0xff242430),
+        color: const Color(0xff242430),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Spacer(flex: 2,),
-            CircleAvatar(
+            const Spacer(flex: 2,),
+            const CircleAvatar(
               radius: 50,
             ),
-            Spacer(),
+            const Spacer(),
             Text('Akshar Patel',style: Theme.of(context).textTheme.subtitle2,),
-            Text('Flutter Developer',textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.w200,height: 1.5),),
-            Spacer(flex: 2,),
+            const Text('Flutter Developer',textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.w200,height: 1.5),),
+            const Spacer(flex: 2,),
           ],
         ),
       ),
