@@ -17,10 +17,11 @@ class MyInfo extends StatelessWidget {
             const Spacer(flex: 2,),
             const CircleAvatar(
               radius: 50,
+              backgroundImage: AssetImage('asset/image/Myimage.jpg'),
             ),
             const Spacer(),
             Text('Akshar Patel',style: Theme.of(context).textTheme.subtitle2,),
-            const Text('Flutter Developer',textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.w200,height: 1.5),),
+            const Text('Flutter Developer \n Red & White Multimedia',textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.w200,height: 1.5),),
             const Spacer(flex: 2,),
           ],
         ),

@@ -25,9 +25,9 @@ class Skills extends StatelessWidget {
           children: [
             Expanded(child: AnimatedCircularProgessIndicator(percetanges: 0.8,label: "Flutter",)),
             SizedBox(width: defaultPadding,),
-            Expanded(child: AnimatedCircularProgessIndicator(percetanges: 0.72,label: "Django",)),
+            Expanded(child: AnimatedCircularProgessIndicator(percetanges: 0.72,label: "PHP",)),
             SizedBox(width: defaultPadding,),
-            Expanded(child: AnimatedCircularProgessIndicator(percetanges: 0.65,label: "Firebase",)),
+            Expanded(child: AnimatedCircularProgessIndicator(percetanges: 0.65,label: "Figma",)),
           ],
         )
       ],

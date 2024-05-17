@@ -74,7 +74,8 @@ class SideMenu extends StatelessWidget {
                     children: [
                       const Spacer(),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                        },
                         icon: SvgPicture.asset('asset/icon/linkedin.svg'),
                       ),
                       IconButton(

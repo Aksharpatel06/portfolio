@@ -21,6 +21,7 @@ class MainScreen extends StatelessWidget {
           Scaffold.of(context).openDrawer();
         },icon: const Icon(Icons.menu),)),
       ),
+      drawer: SideMenu(),
       body: Container(
         constraints: BoxConstraints(
           maxWidth: maxWidth.toDouble(),
